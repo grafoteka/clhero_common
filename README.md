@@ -44,7 +44,7 @@ You need 4 terminals.
 
     $ roslaunch clhero_gait_controller gait_controller.launch
     
-4.- Run the control terminal 
+4.- Run the control terminal: To start moving press (1), to stop (2), to quit (q) 
 
     $ rosrun clhero_gait_controller control_terminal
     
