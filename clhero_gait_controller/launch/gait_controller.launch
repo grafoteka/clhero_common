@@ -2,9 +2,9 @@
 
 	<!--Arguments to pass the launch file-->
 	<arg name="patterns" default="true"/>
-	<arg name="gazebo_sim" default="false"/>
-	<arg name="hardware" default="true"/>
-	<arg name="joy" default="true"/>	
+	<arg name="gazebo_sim" default="true"/>
+	<arg name="hardware" default="false"/>
+	<arg name="joy" default="false"/>	
 
 	<!-- Parametros del YAML -->
 	<!--rosparam file="$(find clhero_hw_control)/config/clhero_params.yaml" /-->
