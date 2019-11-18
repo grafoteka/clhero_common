@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>clhero_sim_description</name>
+  <version>1.0.0</version>
+  <description>CLHeRo's URDF description for gazebo simulation</description>
+
+  <license>BSD</license>
+
+  <author email="raulcebolla@gmail.com">Raul Cebolla Arroyo</author>
+  <maintainer email="raulcebolla@gmail.com">Raul Cebolla Arroyo</maintainer>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslaunch</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>xacro</build_depend>
+  <!--build_depend>robotnik_sensors</build_depend-->
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+  <!--run_depend>robotnik_sensors</run_depend-->
+
+</package>
