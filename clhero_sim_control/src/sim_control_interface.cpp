@@ -328,6 +328,7 @@ void jointStatesCallback (const sensor_msgs::JointState::ConstPtr& msg){
   }
   leg_state_mtx.unlock();
 
+  leg_state_msg.stamp = ros::Time::now();
   legs_state_pub.publish(leg_state_msg);
 
   return;
@@ -383,6 +384,7 @@ int main(int argc, char **argv){
   //----------------------------------------------------
 
   while(ros::ok()){
+
     ros::spinOnce();
     loop_rate.sleep();
   }

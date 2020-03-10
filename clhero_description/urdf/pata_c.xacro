@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <robot name="pata_c" xmlns:xacro="http://ros.org/wiki/xacro">
 
-<!--xacro:property name="motor_reduction"  value="${529.0/16}"/-->
-<xacro:property name="motor_reduction"  value="${1}"/>
-<xacro:property name="motor_max_effort" value="${20}"/>
+<xacro:property name="motor_reduction"  value="${529.0/16}"/>
+<!--xacro:property name="motor_reduction"  value="${1}"/-->
+<xacro:property name="motor_max_effort" value="${100}"/>
 <!--xacro:property name="motor_max_effort" value="${12}"/-->
 <xacro:property name="motor_max_rev"    value="${1256.637/motor_reduction}"/>
 
@@ -52,10 +52,10 @@
 
         <collision>
             <xacro:if value="${right == 1}">
-                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi}"/>
             </xacro:if>
             <xacro:if value="${right == 0}">
-                <origin xyz="0 0.05 0" rpy="${pi/2} 0 0"/>
+                <origin xyz="0 0.05 0" rpy="${pi/2} 0 ${pi}"/>
             </xacro:if>
             <geometry>
                 <mesh filename="package://clhero_description/meshes/clegs_80.stl" scale="0.001 0.001 0.001"/>
@@ -108,12 +108,26 @@
 
 
     <gazebo reference="${name}_pata_c_link">
-        <mu1 value="100000.0"/>
-        <mu2 value="100000.0"/>
+        <mu1 value="1"/>
+        <mu2 value="1"/>
         <kp  value="10000000.0" />
         <kd  value="1.0" />
         <fdir1 value="1 0 0"/>
         <material>Gazebo/Grey</material>
+        <surface>
+            <friction>
+                <torsional>
+                    <coefficient>10</coefficient>
+                    <use_patch_radius>true</use_patch_radius>
+                    <surface_radius>0.05</surface_radius>
+                    <patch_radius>0.01</patch_radius>
+                </torsional>
+            </friction>
+            <contact>
+                <poissons_ratio>0.5</poissons_ratio>
+                <elastic_modulus>1e8</elastic_modulus>
+            </contact>
+        </surface>
     </gazebo>
 
 </xacro:macro>

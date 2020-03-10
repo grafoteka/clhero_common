@@ -46,7 +46,7 @@ std::unordered_map<std::string,double> movement_parameters;
 std::unordered_map<std::string, double> update_movement_parameters(std::map<std::string,std::string> args){
 
 	//Gets each of the parameters
-	
+
 	//Velocity
 	try{
 		movement_parameters["velocity"] = std::stod(args.at("velocity"));
@@ -94,7 +94,7 @@ void state_1 (clhero::Clhero_robot* clhr){
 	}
 
 	if(legs_in_position == LEG_NUMBER){
-		
+
 	}else{
 		legs_in_position = 0;
 		clhr->setLegPosition(all_legs, 0, movement_velocity);
@@ -159,7 +159,7 @@ void stand_up_2_state (clhero::Clhero_robot* clhr){
 		legs_in_position = 0;
 		for(int i=0; i<LEG_NUMBER; i++){
 			if(state[i] > REV_ANG_THR){
-				clhr->setLegPosition(i+1, 0, movement_velocity); 			
+				clhr->setLegPosition(i+1, 0, movement_velocity);
 			}else{
 				clhr->setLegPosition(i+1, 0, (-0.8)*movement_velocity);
 			}
@@ -235,7 +235,8 @@ int main (int argc, char** argv){
 	//----------------------------------------------------
 
 	//attach the states set
-	clhr.attachState(1, state_1, STARTING_STATE);
+	//clhr.attachState(1, state_1, STARTING_STATE);
+	clhr.attachState(1, stand_up_2_state, STARTING_STATE);
 
 	//----------------------------------------------------
 	//    Run

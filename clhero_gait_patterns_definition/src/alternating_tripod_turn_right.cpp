@@ -29,7 +29,7 @@
 #define GROUND_VELOCITY (1) // aprox 30 [rpm] (std = 1 rad/s)
 #define AIR_VELOCITY (5) // (max = 6 rad/s)
 #define LEG_NUMBER 6
-#define ANG_THR 0.12217304763960307
+#define ANG_THR 0.26//0.12217304763960307
 #define STAND_UP_VEL 3
 #define REV_ANG_THR PI // 300 [º]
 #define MAX_GROUND_ANGLE 3.6208146876268845 // 2*max_take_off_angle

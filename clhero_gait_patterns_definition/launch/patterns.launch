@@ -11,8 +11,4 @@
 	<node name="stand_up" pkg="clhero_gait_patterns_definition" type="stand_up" output="screen"/>
 	<node name="lay_down" pkg="clhero_gait_patterns_definition" type="lay_down" output="screen"/>
 	<node name="offset_setting" pkg="clhero_gait_patterns_definition" type="offset_setting" output="screen"/>
-
-	<!-- FSM AI-->
-	<node name="fsm_ai" pkg="clhero_gait_patterns_definition" type="fsm_ai" output="screen"/>
-
 </launch>

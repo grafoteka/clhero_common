@@ -134,6 +134,7 @@ add_library(clhero src/libs/clhero.cpp)
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
 add_dependencies(clhero ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#add_dependencies(talker ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
@@ -141,6 +142,8 @@ add_dependencies(clhero ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TA
 add_executable(clhero_command_interface src/nodes/command_interface.cpp)
 add_executable(clhero_gait_pattern_interface src/nodes/gait_pattern_interface.cpp)
 add_executable(control_terminal src/nodes/terminal.cpp)
+add_executable(talker src/nodes/talker.cpp)
+
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -153,12 +156,16 @@ add_executable(control_terminal src/nodes/terminal.cpp)
 add_dependencies(clhero_command_interface ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(clhero_gait_pattern_interface ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(control_terminal ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(talker ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(clhero_command_interface ${catkin_LIBRARIES})
 target_link_libraries(clhero_gait_pattern_interface ${catkin_LIBRARIES})
 target_link_libraries(control_terminal ${catkin_LIBRARIES})
 target_link_libraries(clhero ${catkin_LIBRARIES})
+target_link_libraries(talker ${catkin_LIBRARIES})
+
 
 #############
 ## Install ##
@@ -207,3 +214,5 @@ install(DIRECTORY include/${PROJECT_NAME}/
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
